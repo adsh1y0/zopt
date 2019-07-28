@@ -52,6 +52,10 @@ fi
 ### History
 #################################################
 
+[ -z "$HISTFILE" ] && HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
 setopt hist_expire_dups_first
 setopt hist_verify
 setopt hist_ignore_dups # 前と重複する行は記録しない
@@ -64,10 +68,7 @@ setopt hist_no_store # histroyコマンドは記録しない
 setopt share_history # 直前と同じコマンドの場合は履歴に追加しない
 setopt inc_append_history
 setopt append_history # 複数のzshを同時に使用した際に履歴ファイルを上書きせず追加する
-
-[ -z "$HISTFILE" ] && HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+setopt EXTENDED_HISTORY
 
 #################################################
 ### Input/Output
